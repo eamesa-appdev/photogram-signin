@@ -13,14 +13,17 @@
   <body>
     <nav>
       <ul>
+        <%if session.fetch(:user_id) == nil%>
         <li>
           <a href="/user_sign_up">Sign Up</a>
         </li>
+          <%end%>
         <li>
-          <a href="/user_sign_out">Sign Out</a>
-        </li>
-        <li>
+          <%if session.fetch(:user_id) == nil%>
           <a href="/user_sign_in">Sign In</a>
+          <%else%>
+            <a href="/user_sign_out">Sign Out</a>
+            <%end%>
         </li>
         <li>
           <a href="/users">Users</a>
